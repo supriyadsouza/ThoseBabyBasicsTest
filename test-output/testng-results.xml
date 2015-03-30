@@ -1,0 +1,103 @@
+<?xml version="1.0" encoding="UTF-8"?>
+<testng-results skipped="4" failed="1" total="5" passed="0">
+  <reporter-output>
+  </reporter-output>
+  <suite name="Default suite" duration-ms="16644" started-at="2015-03-29T21:05:24Z" finished-at="2015-03-29T21:05:40Z">
+    <groups>
+    </groups>
+    <test name="Default test" duration-ms="16644" started-at="2015-03-29T21:05:24Z" finished-at="2015-03-29T21:05:40Z">
+      <class name="com.SupriyaTests.ThoseBabyBasics.FunctionalTest">
+        <test-method status="PASS" signature="setUp()[pri:0, instance:com.SupriyaTests.ThoseBabyBasics.FunctionalTest@3f3afe78]" name="setUp" is-config="true" duration-ms="12126" started-at="2015-03-29T23:05:24Z" finished-at="2015-03-29T23:05:36Z">
+          <reporter-output>
+          </reporter-output>
+        </test-method> <!-- setUp -->
+        <test-method status="FAIL" signature="login()[pri:0, instance:com.SupriyaTests.ThoseBabyBasics.FunctionalTest@3f3afe78]" name="login" duration-ms="3250" started-at="2015-03-29T23:05:36Z" finished-at="2015-03-29T23:05:39Z">
+          <exception class="org.openqa.selenium.NoSuchElementException">
+            <message>
+              <![CDATA[Unable to find element with xpath == //input[@id='email'] (WARNING: The server did not provide any stacktrace information)
+Command duration or timeout: 532 milliseconds
+For documentation on this error, please visit: http://seleniumhq.org/exceptions/no_such_element.html
+Build info: version: '2.45.0', revision: '5017cb8e7ca8e37638dc3091b2440b90a1d8686f', time: '2015-02-27 09:10:26'
+System info: host: 'SupriyaPC', ip: '192.168.1.70', os.name: 'Windows 8.1', os.arch: 'amd64', os.version: '6.3', java.version: '1.8.0_25'
+Driver info: org.openqa.selenium.ie.InternetExplorerDriver
+Capabilities [{browserAttachTimeout=0, enablePersistentHover=true, ie.forceCreateProcessApi=false, ie.usePerProcessProxy=false, ignoreZoomSetting=false, handlesAlerts=true, version=11, platform=WINDOWS, nativeEvents=true, ie.ensureCleanSession=false, elementScrollBehavior=0, ie.browserCommandLineSwitches=, requireWindowFocus=false, browserName=internet explorer, initialBrowserUrl=http://localhost:26211/, takesScreenshot=true, javascriptEnabled=true, ignoreProtectedModeSettings=false, enableElementCacheCleanup=true, cssSelectorsEnabled=true, unexpectedAlertBehaviour=dismiss}]
+Session ID: eb14f895-2960-4030-95ab-c5932ecac897
+*** Element info: {Using=xpath, value=//input[@id='email']}]]>
+            </message>
+            <full-stacktrace>
+              <![CDATA[org.openqa.selenium.NoSuchElementException: Unable to find element with xpath == //input[@id='email'] (WARNING: The server did not provide any stacktrace information)
+Command duration or timeout: 532 milliseconds
+For documentation on this error, please visit: http://seleniumhq.org/exceptions/no_such_element.html
+Build info: version: '2.45.0', revision: '5017cb8e7ca8e37638dc3091b2440b90a1d8686f', time: '2015-02-27 09:10:26'
+System info: host: 'SupriyaPC', ip: '192.168.1.70', os.name: 'Windows 8.1', os.arch: 'amd64', os.version: '6.3', java.version: '1.8.0_25'
+Driver info: org.openqa.selenium.ie.InternetExplorerDriver
+Capabilities [{browserAttachTimeout=0, enablePersistentHover=true, ie.forceCreateProcessApi=false, ie.usePerProcessProxy=false, ignoreZoomSetting=false, handlesAlerts=true, version=11, platform=WINDOWS, nativeEvents=true, ie.ensureCleanSession=false, elementScrollBehavior=0, ie.browserCommandLineSwitches=, requireWindowFocus=false, browserName=internet explorer, initialBrowserUrl=http://localhost:26211/, takesScreenshot=true, javascriptEnabled=true, ignoreProtectedModeSettings=false, enableElementCacheCleanup=true, cssSelectorsEnabled=true, unexpectedAlertBehaviour=dismiss}]
+Session ID: eb14f895-2960-4030-95ab-c5932ecac897
+*** Element info: {Using=xpath, value=//input[@id='email']}
+	at sun.reflect.NativeConstructorAccessorImpl.newInstance0(Native Method)
+	at sun.reflect.NativeConstructorAccessorImpl.newInstance(Unknown Source)
+	at sun.reflect.DelegatingConstructorAccessorImpl.newInstance(Unknown Source)
+	at java.lang.reflect.Constructor.newInstance(Unknown Source)
+	at org.openqa.selenium.remote.ErrorHandler.createThrowable(ErrorHandler.java:204)
+	at org.openqa.selenium.remote.ErrorHandler.throwIfResponseFailed(ErrorHandler.java:156)
+	at org.openqa.selenium.remote.RemoteWebDriver.execute(RemoteWebDriver.java:599)
+	at org.openqa.selenium.remote.RemoteWebDriver.findElement(RemoteWebDriver.java:352)
+	at org.openqa.selenium.remote.RemoteWebDriver.findElementByXPath(RemoteWebDriver.java:449)
+	at org.openqa.selenium.By$ByXPath.findElement(By.java:357)
+	at org.openqa.selenium.remote.RemoteWebDriver.findElement(RemoteWebDriver.java:344)
+	at com.SupriyaTests.ThoseBabyBasics.Structure.LoginPage.fillEmailId(LoginPage.java:13)
+	at com.SupriyaTests.ThoseBabyBasics.FunctionalTest.login(FunctionalTest.java:56)
+	at sun.reflect.NativeMethodAccessorImpl.invoke0(Native Method)
+	at sun.reflect.NativeMethodAccessorImpl.invoke(Unknown Source)
+	at sun.reflect.DelegatingMethodAccessorImpl.invoke(Unknown Source)
+	at java.lang.reflect.Method.invoke(Unknown Source)
+	at org.testng.internal.MethodInvocationHelper.invokeMethod(MethodInvocationHelper.java:84)
+	at org.testng.internal.Invoker.invokeMethod(Invoker.java:714)
+	at org.testng.internal.Invoker.invokeTestMethod(Invoker.java:901)
+	at org.testng.internal.Invoker.invokeTestMethods(Invoker.java:1231)
+	at org.testng.internal.TestMethodWorker.invokeTestMethods(TestMethodWorker.java:127)
+	at org.testng.internal.TestMethodWorker.run(TestMethodWorker.java:111)
+	at org.testng.TestRunner.privateRun(TestRunner.java:767)
+	at org.testng.TestRunner.run(TestRunner.java:617)
+	at org.testng.SuiteRunner.runTest(SuiteRunner.java:334)
+	at org.testng.SuiteRunner.runSequentially(SuiteRunner.java:329)
+	at org.testng.SuiteRunner.privateRun(SuiteRunner.java:291)
+	at org.testng.SuiteRunner.run(SuiteRunner.java:240)
+	at org.testng.SuiteRunnerWorker.runSuite(SuiteRunnerWorker.java:52)
+	at org.testng.SuiteRunnerWorker.run(SuiteRunnerWorker.java:86)
+	at org.testng.TestNG.runSuitesSequentially(TestNG.java:1224)
+	at org.testng.TestNG.runSuitesLocally(TestNG.java:1149)
+	at org.testng.TestNG.run(TestNG.java:1057)
+	at org.testng.remote.RemoteTestNG.run(RemoteTestNG.java:111)
+	at org.testng.remote.RemoteTestNG.initAndRun(RemoteTestNG.java:204)
+	at org.testng.remote.RemoteTestNG.main(RemoteTestNG.java:175)
+]]>
+            </full-stacktrace>
+          </exception> <!-- org.openqa.selenium.NoSuchElementException -->
+          <reporter-output>
+          </reporter-output>
+        </test-method> <!-- login -->
+        <test-method status="SKIP" signature="addBabyBoyItems()[pri:0, instance:com.SupriyaTests.ThoseBabyBasics.FunctionalTest@3f3afe78]" name="addBabyBoyItems" duration-ms="20" started-at="2015-03-29T23:05:39Z" depends-on-methods="com.SupriyaTests.ThoseBabyBasics.FunctionalTest.login" finished-at="2015-03-29T23:05:39Z">
+          <reporter-output>
+          </reporter-output>
+        </test-method> <!-- addBabyBoyItems -->
+        <test-method status="SKIP" signature="editCart()[pri:0, instance:com.SupriyaTests.ThoseBabyBasics.FunctionalTest@3f3afe78]" name="editCart" duration-ms="4" started-at="2015-03-29T23:05:39Z" depends-on-methods="com.SupriyaTests.ThoseBabyBasics.FunctionalTest.addBabyGirlItems, com.SupriyaTests.ThoseBabyBasics.FunctionalTest.addBabyBoyItems" finished-at="2015-03-29T23:05:39Z">
+          <reporter-output>
+          </reporter-output>
+        </test-method> <!-- editCart -->
+        <test-method status="SKIP" signature="addBabyGirlItems()[pri:0, instance:com.SupriyaTests.ThoseBabyBasics.FunctionalTest@3f3afe78]" name="addBabyGirlItems" duration-ms="0" started-at="2015-03-29T23:05:39Z" depends-on-methods="com.SupriyaTests.ThoseBabyBasics.FunctionalTest.login" finished-at="2015-03-29T23:05:39Z">
+          <reporter-output>
+          </reporter-output>
+        </test-method> <!-- addBabyGirlItems -->
+        <test-method status="SKIP" signature="logout()[pri:0, instance:com.SupriyaTests.ThoseBabyBasics.FunctionalTest@3f3afe78]" name="logout" duration-ms="4" started-at="2015-03-29T23:05:39Z" depends-on-methods="com.SupriyaTests.ThoseBabyBasics.FunctionalTest.editCart" finished-at="2015-03-29T23:05:39Z">
+          <reporter-output>
+          </reporter-output>
+        </test-method> <!-- logout -->
+        <test-method status="PASS" signature="tearDown()[pri:0, instance:com.SupriyaTests.ThoseBabyBasics.FunctionalTest@3f3afe78]" name="tearDown" is-config="true" duration-ms="1136" started-at="2015-03-29T23:05:39Z" finished-at="2015-03-29T23:05:40Z">
+          <reporter-output>
+          </reporter-output>
+        </test-method> <!-- tearDown -->
+      </class> <!-- com.SupriyaTests.ThoseBabyBasics.FunctionalTest -->
+    </test> <!-- Default test -->
+  </suite> <!-- Default suite -->
+</testng-results>
