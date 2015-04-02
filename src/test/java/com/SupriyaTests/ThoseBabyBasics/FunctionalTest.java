@@ -2,21 +2,21 @@ package com.SupriyaTests.ThoseBabyBasics;
 
 import org.apache.log4j.Logger;
 import org.apache.log4j.PropertyConfigurator;
-import org.openqa.selenium.By;
 import org.openqa.selenium.WebDriver;
-import org.openqa.selenium.WebElement;
 import org.openqa.selenium.chrome.ChromeDriver;
 import org.openqa.selenium.firefox.FirefoxDriver;
 import org.openqa.selenium.ie.InternetExplorerDriver;
 import org.openqa.selenium.interactions.Actions;
-import org.openqa.selenium.support.ui.ExpectedConditions;
-import org.openqa.selenium.support.ui.Select;
 import org.openqa.selenium.support.ui.WebDriverWait;
+import org.testng.Assert;
 import org.testng.annotations.AfterClass;
-import org.testng.annotations.AfterTest;
 import org.testng.annotations.BeforeClass;
+import org.testng.annotations.DataProvider;
+import org.testng.annotations.Parameters;
 import org.testng.annotations.Test;
 
+import com.SupriyaTests.ThoseBabyBasics.Structure.Cart;
+import com.SupriyaTests.ThoseBabyBasics.Structure.ItemNotInCartException;
 import com.SupriyaTests.ThoseBabyBasics.Structure.LoginPage;
 import com.SupriyaTests.ThoseBabyBasics.Structure.MenuBar;
 import com.SupriyaTests.ThoseBabyBasics.Structure.ToolBar;
@@ -29,17 +29,27 @@ public class FunctionalTest
 	public Actions action;
 	public static Logger log = Logger.getLogger(FunctionalTest.class);
 	public static String baseUrl = "https://www.thosebabybasics.com/en/";
-	
+		
+	@Parameters("browser")
 	@BeforeClass
-	public void setUp()
+	public void setUp(String browser)
 	{
 		PropertyConfigurator.configure("log4j.properties");		
 		log.info("Opening broswer");
-		//driver = new FirefoxDriver();
-		System.setProperty("webdriver.ie.driver", "C:\\Library\\IEDriverServer.exe");
-		driver = new InternetExplorerDriver();
-		//System.setProperty("webdriver.chrome.driver", "C:\\Library\\Chromedriver.exe");
-		//driver = new ChromeDriver();
+		
+		if (browser=="chrome")
+		{
+			System.setProperty("webdriver.chrome.driver", "Resources\\Chromedriver.exe");
+			driver = new ChromeDriver();
+		}
+		else if (browser=="ie")
+		{
+			System.setProperty("webdriver.ie.driver", "Resources\\IEDriverServer.exe");
+			driver = new InternetExplorerDriver();
+		}
+		else
+			driver = new FirefoxDriver();
+		
 		wait = new WebDriverWait(driver, 10);
 		action = new Actions(driver);
 		driver.manage().window().maximize();
@@ -60,50 +70,51 @@ public class FunctionalTest
 		LoginPage.clickLoginButton(driver);
 	}
 	
-	@Test(dependsOnMethods={"login"})
-	public void addBabyGirlItems()
+	@DataProvider
+	private Object[][] getItemtoAdd ()
 	{
-		log.info("Navigating to 0-2 Year Girl page");
-		driver.navigate().to(baseUrl+"babyclothing/tops-pullovers.html");
-		addToCart();
-	}
-
-	private void addToCart() {
-		wait.until(ExpectedConditions.visibilityOfElementLocated(By.xpath("(//button[@type='button'])[2]")));
-		driver.findElement(By.xpath("(//button[@type='button'])[2]")).click();
-		wait.until(ExpectedConditions.visibilityOfElementLocated(By.id("fancybox-frame")));
-		WebElement frame = driver.findElement(By.id("fancybox-frame"));
-		driver.switchTo().frame(frame);
-		
-		wait.until(ExpectedConditions.visibilityOfElementLocated(By.id("attribute76")));
-		Select color = new Select(driver.findElement(By.id("attribute76")));
-		color.selectByIndex(1);
-		Select size = new Select(driver.findElement(By.id("attribute499")));
-		size.selectByIndex(1);
-		driver.findElement(By.xpath(".//*[@id='product_addtocart_form']/div[2]/div[4]/div[2]/button")).click();
-		
-		driver.switchTo().defaultContent();
+		Object[][] data = new Object[1][6];
+		//data[1][0] = "0-2 Year   Girl"; data[1][1] = "Tops / Pullovers"; data[1][2] = "Girls Top"; data[1][3] = "Soft Pink"; data[1][4]="18-24 months"; data[1][5]="3";
+		data[0][0] = "0-2 Year   Boy"; data[0][1] = "Socks"; data[0][2] = "Socks Set"; data[0][3] = "Navy"; data[0][4]="6-12 months"; data[0][5]="2";
+		return data;
 	}
 	
-	@Test(dependsOnMethods={"login"}, enabled=true)
-	public void addBabyBoyItems()
+	@Test(enabled=true, dataProvider="getItemtoAdd", dependsOnMethods="login")
+	public void addBabyItem(String menuText, String subMenuText, String itemText, String colorText, String sizeText, String qtyText)
 	{
-		log.info("Navigating to Baby Boy pages");
-		driver.navigate().to(baseUrl+"boys-babyclothing/socks.html");
-		addToCart();
+		log.info("Navigating to menu option: "+menuText+ " > "+subMenuText);
+		MenuBar.clickSubMenuItem(driver, menuText, subMenuText);
+		log.info("Adding item to the cart: "+itemText+" -- "+colorText+" -- "+sizeText);
+		Cart.addItem(driver, itemText, colorText, sizeText, qtyText);
 	}
 	
-	@Test(dependsOnMethods={"addBabyGirlItems","addBabyBoyItems"})
-	public void editCart() throws InterruptedException
+	@DataProvider
+	private Object[][] getItemtoRemove ()
 	{
-		wait.until(ExpectedConditions.visibilityOfElementLocated(By.xpath(".//*[@id='top-cart']/a[1]")));
-		driver.findElement(By.xpath(".//*[@id='top-cart']/a[1]")).click();
-		driver.findElement(By.xpath(".//*[@id='shopping-cart-table']/tbody/tr[1]/td[7]/a")).click();
-		driver.findElement(By.xpath(".//*[@id='shopping-cart-table']/tbody/tr[1]/td[7]/a")).click();
-		Thread.sleep(5000);
+		Object data [][] = new Object[1][1];
+		data[0][0] = "Socks Set";
+		return data;
 	}
 	
-	@Test(dependsOnMethods={"editCart"}, enabled=true)
+	@Test(enabled=true, dataProvider="getItemtoRemove", dependsOnMethods={"addBabyItem"})
+	public void removeItemFromCart(String itemText)
+	{
+		log.info("Navigating to the shopping cart page");
+		Cart.openCart(driver);
+		log.info("Removing item from shooping cart: "+itemText);
+		try
+		{
+			Cart.removeItem(driver, itemText);
+		} 
+		catch (ItemNotInCartException e) 
+		{
+			e.printStackTrace();
+			Assert.fail();
+		}
+		Cart.openCart(driver);
+	}
+	
+	@Test(dependsOnMethods={"removeItemFromCart"}, enabled=false)
 	public void logout()
 	{
 		log.info("Clicking the logout link");

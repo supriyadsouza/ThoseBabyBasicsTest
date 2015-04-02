@@ -9,32 +9,26 @@ import org.openqa.selenium.support.ui.WebDriverWait;
 
 public class MenuBar {
 	
-	public static WebElement clickMenuItem (WebDriver driver, String menuText)
+	public static void clickMenuItem (WebDriver driver, String menuText)
 	{
 		Actions action = new Actions(driver);
-		WebDriverWait wait = new WebDriverWait(driver,30);
+		String menuXpath = "//div[@class='row menu-wrapper']//ul[@id='nav']/li/a/span[text()='"+menuText+"']";
 		
-		//this does not work
-		WebElement toolbaritem = wait.until(
-				ExpectedConditions.visibilityOfElementLocated(
-						By.xpath("(//ul[@id='nav']/li/a/span[text()='"+menuText+"'])")));
-		
-		//this works
-		//WebElement toolbaritem = wait.until(
-		//		ExpectedConditions.visibilityOfElementLocated(
-		//				By.xpath("(//ul[@id='nav']/li/a/span)[9]")));
-		
-		action.moveToElement(toolbaritem).build().perform();
-		return toolbaritem;
+		WebElement menu = driver.findElement(By.xpath(menuXpath));
+		action.moveToElement(menu).click().build().perform();
 	}
 
 	public static void clickSubMenuItem (WebDriver driver, String menuText, String subMenuText)
 	{
-		WebElement toolbaritem = clickMenuItem(driver, menuText);
 		Actions action = new Actions(driver);
-		WebDriverWait wait = new WebDriverWait((WebDriver) toolbaritem, 10);
-		WebElement category = toolbaritem.findElement(By.xpath(".//span[text()='"+subMenuText+"']"));
-		wait.until(ExpectedConditions.elementToBeClickable(category));
-		action.moveToElement(category).click().build().perform();
+		WebDriverWait wait = new WebDriverWait(driver, 10);
+		String menuXpath = "//div[@class='row menu-wrapper']//ul[@id='nav']/li/a/span[text()='"+menuText+"']";
+		String subMenuXpath = menuXpath + "/../..//a/span[text()='"+subMenuText+"']";
+		
+		WebElement menu = driver.findElement(By.xpath(menuXpath));
+		action.moveToElement(menu).build().perform();
+		WebElement subMenu = driver.findElement(By.xpath(subMenuXpath));
+		wait.until(ExpectedConditions.visibilityOfElementLocated(By.xpath(subMenuXpath)));
+		action.moveToElement(subMenu).click().build().perform();
 	}
 }

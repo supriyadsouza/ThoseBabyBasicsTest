@@ -5,13 +5,9 @@
     <classes>
       <class name="com.SupriyaTests.ThoseBabyBasics.FunctionalTest">
         <methods>
-          <include name="setUp"/>
-          <include name="addBabyBoyItems"/>
-          <include name="editCart"/>
           <include name="login"/>
-          <include name="tearDown"/>
-          <include name="logout"/>
-          <include name="addBabyGirlItems"/>
+          <include name="addBabyItem"/>
+          <include name="removeItemFromCart"/>
         </methods>
       </class> <!-- com.SupriyaTests.ThoseBabyBasics.FunctionalTest -->
     </classes>

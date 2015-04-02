@@ -1,0 +1,19 @@
+<?xml version="1.0" encoding="UTF-8"?>
+<!DOCTYPE suite SYSTEM "http://testng.org/testng-1.0.dtd">
+<suite name="Failed suite [Suite]" parallel="none">
+  <parameter name="browser" value="firefox"/>
+  <test name="FirefoxTest(failed)" parallel="none">
+    <parameter name="browser" value="firefox"/>
+    <classes>
+      <class name="com.SupriyaTests.ThoseBabyBasics.FunctionalTest">
+        <methods>
+          <include name="setUp"/>
+          <include name="login"/>
+          <include name="addBabyItem"/>
+          <include name="tearDown"/>
+          <include name="removeItemFromCart" invocation-numbers="0"/>
+        </methods>
+      </class> <!-- com.SupriyaTests.ThoseBabyBasics.FunctionalTest -->
+    </classes>
+  </test> <!-- FirefoxTest(failed) -->
+</suite> <!-- Failed suite [Suite] -->
