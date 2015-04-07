@@ -1,13 +1,13 @@
 <?xml version="1.0" encoding="UTF-8"?>
-<testng-results skipped="0" failed="0" total="3" passed="3">
+<testng-results skipped="0" failed="0" total="5" passed="5">
   <reporter-output>
   </reporter-output>
-  <suite name="Suite" duration-ms="104233" started-at="2015-04-02T11:18:41Z" finished-at="2015-04-02T11:20:26Z">
+  <suite name="Suite" duration-ms="106354" started-at="2015-04-07T19:46:07Z" finished-at="2015-04-07T19:47:53Z">
     <groups>
     </groups>
-    <test name="FirefoxTest" duration-ms="104233" started-at="2015-04-02T11:18:41Z" finished-at="2015-04-02T11:20:26Z">
+    <test name="FirefoxTest" duration-ms="106354" started-at="2015-04-07T19:46:07Z" finished-at="2015-04-07T19:47:53Z">
       <class name="com.SupriyaTests.ThoseBabyBasics.FunctionalTest">
-        <test-method status="PASS" signature="setUp(java.lang.String)[pri:0, instance:com.SupriyaTests.ThoseBabyBasics.FunctionalTest@3f3afe78]" name="setUp" is-config="true" duration-ms="31043" started-at="2015-04-02T13:18:41Z" finished-at="2015-04-02T13:19:12Z">
+        <test-method status="PASS" signature="setUp(java.lang.String)[pri:0, instance:com.SupriyaTests.ThoseBabyBasics.FunctionalTest@3f3afe78]" name="setUp" is-config="true" duration-ms="18000" started-at="2015-04-07T21:46:07Z" finished-at="2015-04-07T21:46:25Z">
           <params>
             <param index="0">
               <value>
@@ -18,11 +18,11 @@
           <reporter-output>
           </reporter-output>
         </test-method> <!-- setUp -->
-        <test-method status="PASS" signature="login()[pri:0, instance:com.SupriyaTests.ThoseBabyBasics.FunctionalTest@3f3afe78]" name="login" duration-ms="19296" started-at="2015-04-02T13:19:12Z" finished-at="2015-04-02T13:19:32Z">
+        <test-method status="PASS" signature="login()[pri:0, instance:com.SupriyaTests.ThoseBabyBasics.FunctionalTest@3f3afe78]" name="login" duration-ms="18248" started-at="2015-04-07T21:46:25Z" finished-at="2015-04-07T21:46:43Z">
           <reporter-output>
           </reporter-output>
         </test-method> <!-- login -->
-        <test-method status="PASS" signature="addBabyItem(java.lang.String, java.lang.String, java.lang.String, java.lang.String, java.lang.String, java.lang.String)[pri:0, instance:com.SupriyaTests.ThoseBabyBasics.FunctionalTest@3f3afe78]" name="addBabyItem" duration-ms="31193" started-at="2015-04-02T13:19:32Z" data-provider="getItemtoAdd" depends-on-methods="com.SupriyaTests.ThoseBabyBasics.FunctionalTest.login" finished-at="2015-04-02T13:20:03Z">
+        <test-method status="PASS" signature="addBabyItem(java.lang.String, java.lang.String, java.lang.String, java.lang.String, java.lang.String, java.lang.String)[pri:0, instance:com.SupriyaTests.ThoseBabyBasics.FunctionalTest@3f3afe78]" name="addBabyItem" duration-ms="26490" started-at="2015-04-07T21:46:43Z" data-provider="getItemtoAdd" depends-on-methods="com.SupriyaTests.ThoseBabyBasics.FunctionalTest.login" finished-at="2015-04-07T21:47:09Z">
           <params>
             <param index="0">
               <value>
@@ -58,7 +58,43 @@
           <reporter-output>
           </reporter-output>
         </test-method> <!-- addBabyItem -->
-        <test-method status="PASS" signature="removeItemFromCart(java.lang.String)[pri:0, instance:com.SupriyaTests.ThoseBabyBasics.FunctionalTest@3f3afe78]" name="removeItemFromCart" duration-ms="13210" started-at="2015-04-02T13:20:03Z" data-provider="getItemtoRemove" depends-on-methods="com.SupriyaTests.ThoseBabyBasics.FunctionalTest.addBabyItem" finished-at="2015-04-02T13:20:16Z">
+        <test-method status="PASS" signature="addBabyItem(java.lang.String, java.lang.String, java.lang.String, java.lang.String, java.lang.String, java.lang.String)[pri:0, instance:com.SupriyaTests.ThoseBabyBasics.FunctionalTest@3f3afe78]" name="addBabyItem" duration-ms="21534" started-at="2015-04-07T21:47:09Z" data-provider="getItemtoAdd" depends-on-methods="com.SupriyaTests.ThoseBabyBasics.FunctionalTest.login" finished-at="2015-04-07T21:47:31Z">
+          <params>
+            <param index="0">
+              <value>
+                <![CDATA[0-2 Year   Girl]]>
+              </value>
+            </param>
+            <param index="1">
+              <value>
+                <![CDATA[Tops / Pullovers]]>
+              </value>
+            </param>
+            <param index="2">
+              <value>
+                <![CDATA[Girls Top]]>
+              </value>
+            </param>
+            <param index="3">
+              <value>
+                <![CDATA[Soft Pink]]>
+              </value>
+            </param>
+            <param index="4">
+              <value>
+                <![CDATA[18-24 months]]>
+              </value>
+            </param>
+            <param index="5">
+              <value>
+                <![CDATA[3]]>
+              </value>
+            </param>
+          </params>
+          <reporter-output>
+          </reporter-output>
+        </test-method> <!-- addBabyItem -->
+        <test-method status="PASS" signature="removeItemFromCart(java.lang.String)[pri:0, instance:com.SupriyaTests.ThoseBabyBasics.FunctionalTest@3f3afe78]" name="removeItemFromCart" duration-ms="11855" started-at="2015-04-07T21:47:31Z" data-provider="getItemtoRemove" depends-on-methods="com.SupriyaTests.ThoseBabyBasics.FunctionalTest.addBabyItem" finished-at="2015-04-07T21:47:43Z">
           <params>
             <param index="0">
               <value>
@@ -69,7 +105,11 @@
           <reporter-output>
           </reporter-output>
         </test-method> <!-- removeItemFromCart -->
-        <test-method status="PASS" signature="tearDown()[pri:0, instance:com.SupriyaTests.ThoseBabyBasics.FunctionalTest@3f3afe78]" name="tearDown" is-config="true" duration-ms="9435" started-at="2015-04-02T13:20:16Z" finished-at="2015-04-02T13:20:26Z">
+        <test-method status="PASS" signature="logout()[pri:0, instance:com.SupriyaTests.ThoseBabyBasics.FunctionalTest@3f3afe78]" name="logout" duration-ms="7383" started-at="2015-04-07T21:47:43Z" depends-on-methods="com.SupriyaTests.ThoseBabyBasics.FunctionalTest.removeItemFromCart" finished-at="2015-04-07T21:47:50Z">
+          <reporter-output>
+          </reporter-output>
+        </test-method> <!-- logout -->
+        <test-method status="PASS" signature="tearDown()[pri:0, instance:com.SupriyaTests.ThoseBabyBasics.FunctionalTest@3f3afe78]" name="tearDown" is-config="true" duration-ms="2803" started-at="2015-04-07T21:47:50Z" finished-at="2015-04-07T21:47:53Z">
           <reporter-output>
           </reporter-output>
         </test-method> <!-- tearDown -->

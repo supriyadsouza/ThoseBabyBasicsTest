@@ -9,9 +9,9 @@
         <methods>
           <include name="setUp"/>
           <include name="login"/>
-          <include name="addBabyItem"/>
+          <include name="addBabyItem" invocation-numbers="0 1"/>
           <include name="tearDown"/>
-          <include name="removeItemFromCart" invocation-numbers="0"/>
+          <include name="removeItemFromCart"/>
         </methods>
       </class> <!-- com.SupriyaTests.ThoseBabyBasics.FunctionalTest -->
     </classes>
